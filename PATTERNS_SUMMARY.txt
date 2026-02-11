@@ -1,0 +1,204 @@
+STRUCTURAL DESIGN PATTERNS - EXAMPLE PROJECTS SUMMARY
+======================================================
+
+This directory contains 4 example Java projects demonstrating the 4 structural design patterns:
+Composite, Decorator, Adapter, and Bridge.
+
+Each folder contains a complete, compilable Java project with detailed comments for study purposes.
+The main class is named "App" in each project.
+
+---
+
+1. COMPOSITE PATTERN (Composite folder)
+========================================
+File: App.java
+Main Class: App
+
+What It Does:
+- Composes objects into tree structures (Lesson → Course → Module)
+- Treats individual and composite objects uniformly through a common interface
+- Hierarchical structure where each level knows how to calculate its own properties
+
+Key Classes:
+- CourseComponent (Interface): Defines operations for both leaf and composite
+- Lesson (Leaf): Individual course item
+- Course (Composite): Contains lessons
+- Module (Composite): Contains courses
+
+EduLearn Use Case:
+- Lesson → Course → Module hierarchy
+- Unified duration and price calculation at any level
+- Checkout works with any level: single lesson, entire course, or entire module
+
+Run: java App
+Output: Shows hierarchical course structure with transparent price/duration calculations
+
+---
+
+2. DECORATOR PATTERN (Decorator folder)
+========================================
+File: App.java
+Main Class: App
+
+What It Does:
+- Dynamically adds functionality to objects without modifying their structure
+- Allows multiple add-ons to be stacked together
+- Alternative to subclassing for extending behavior
+
+Key Classes:
+- Purchasable (Interface): Defines pricing interface
+- BaseCourse (Component): Base course offering
+- CourseDecorator (Abstract Decorator): Base for all add-ons
+- PracticeQuestionSetDecorator: $10 add-on
+- LiveMentorSupportDecorator: $20 add-on
+- PremiumSupportDecorator: $15 add-on
+
+EduLearn Use Case:
+- Optional add-ons (Practice sets, Live mentor support)
+- Flexible combination of features
+- Multiple decorators can be applied to same base course
+- Price automatically includes all applied decorators
+
+Run: java App
+Output: Shows different course configurations with add-ons and their total prices
+
+---
+
+3. ADAPTER PATTERN (Adapter folder)
+====================================
+File: App.java
+Main Class: App
+
+What It Does:
+- Converts incompatible interfaces into a common interface
+- Allows integration of existing systems with different APIs
+- Makes diverse discount systems work together seamlessly
+
+Key Classes:
+- DiscountCalculator (Target Interface): Expected interface
+- LegacyFlatDiscountSystem (Adaptee): Old discount system
+- ThirdPartyDiscountService (Adaptee): Third-party service
+- LegacyFlatDiscountAdapter: Adapter for legacy system
+- ThirdPartyDiscountAdapter: Adapter for third-party service
+- DevelopingCountryDiscountAdapter: Already implements interface
+- CheckoutSystem: Uses adapters to apply multiple discounts
+
+EduLearn Use Case:
+- Different discount system interfaces (legacy, third-party, internal)
+- Unified DiscountCalculator interface for all
+- Multiple discounts can be combined
+- New discount systems can be added by creating adapters
+
+Run: java App
+Output: Shows checkout with various combinations of discounts from different sources
+
+---
+
+4. BRIDGE PATTERN (Bridge folder)
+==================================
+File: App.java
+Main Class: App
+
+What It Does:
+- Decouples abstraction from implementation
+- Allows two dimensions to vary independently
+- Avoids creating a class for every combination
+
+Key Classes:
+- CourseOffering (Abstraction): Base course types
+- SingleCourse, CourseBundleOffering, AnnualSubscription (Refined Abstractions)
+- PricingStrategy (Implementor Interface): Different pricing algorithms
+- StandardPricing, DurationBasedPricing, BulkDiscountPricing, PremiumDynamicPricing (Concrete Implementors)
+
+EduLearn Use Case:
+- Separate course structure from pricing strategy
+- Different pricing algorithms (standard, duration-based, bulk, dynamic)
+- Easy to add new course types (works with all pricing strategies)
+- Easy to add new pricing strategies (works with all course types)
+
+Run: java App
+Output: Shows how different pricing strategies apply differently to various course types
+
+---
+
+COMPILATION & EXECUTION:
+========================
+
+For Composite Pattern:
+  cd Composite
+  javac App.java
+  java App
+
+For Decorator Pattern:
+  cd Decorator
+  javac App.java
+  java App
+
+For Adapter Pattern:
+  cd Adapter
+  javac App.java
+  java App
+
+For Bridge Pattern:
+  cd Bridge
+  javac App.java
+  java App
+
+---
+
+KEY CONCEPTS FOR STUDY:
+=======================
+
+COMPOSITE: Part-Whole Hierarchies
+- Tree structures with uniform treatment
+- Key: Component interface that both Leaf and Composite implement
+- Use when: You have hierarchical structures and need uniform access
+
+DECORATOR: Dynamic Functionality Addition
+- Wrapping objects to add features
+- Key: Decorator wraps the interface, not replaces it
+- Use when: Optional features or combinations of features
+
+ADAPTER: Interface Compatibility
+- Making incompatible things work together
+- Key: Adapter translates one interface to another
+- Use when: Integrating existing systems with different interfaces
+
+BRIDGE: Dimension Independence
+- Separating abstraction from implementation
+- Key: Bridge interface between abstraction and implementation
+- Use when: Both abstraction and implementation vary independently
+
+---
+
+MOST APPROPRIATE FOR EDULEARN ASSIGNMENT:
+===========================================
+
+Based on the assignment requirements:
+
+1. **COMPOSITE** - MOST CRITICAL
+   - Handles Lesson → Course → Module hierarchy
+   - Provides unified interface for price/duration calculation
+   - Directly addresses Requirement 1 (Unified Interface)
+   - Directly addresses Requirement 3 (Transparency)
+
+2. **DECORATOR** - VERY IMPORTANT
+   - Implements optional add-ons (Practice sets, Live mentor)
+   - Allows flexible combination of features
+   - Directly addresses Requirement 1 (Optional Add-ons pricing)
+
+3. **ADAPTER** - IMPORTANT
+   - Integrates multiple discount systems
+   - Unified discount calculator interface
+   - Directly addresses Requirement 2 (Multiple Discounts)
+
+4. **BRIDGE** - LESS CRITICAL FOR THIS ASSIGNMENT
+   - Can separate pricing logic from product hierarchy
+   - Useful for flexibility but not explicitly required
+   - More relevant for future expansion
+
+---
+
+These examples serve as study material. Adapt and modify them according to your
+specific EduLearn implementation needs!
+
