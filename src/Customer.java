@@ -31,7 +31,7 @@ public class Customer {
     return isStudent;
   }
 
-  public void setStudentStatus(boolean studentStatus) {
-    isStudent = studentStatus;
+  public void setStudentStatus(boolean isStudent) {
+    this.isStudent = isStudent;
   }
 }
