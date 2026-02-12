@@ -1,5 +1,5 @@
-public class AddOnDecorator implements Purchasable {
-  private Purchasable purchasable;
+public abstract class AddOnDecorator implements Purchasable {
+  private Purchasable purchasable; //Wrappee
 
   //Constructor
   public AddOnDecorator(Purchasable purchasable) {
