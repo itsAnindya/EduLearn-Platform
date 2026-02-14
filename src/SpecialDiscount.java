@@ -7,21 +7,35 @@ public class SpecialDiscount extends CartDecorator {
   }
 
   private boolean isEligibleForDiscount() {
-    if(super.cart instanceof Cart c) {
-      return c.calculateDuration() >= MIN_DURATION_FOR_DISCOUNT;
-    }
-    
-    return false;
+    return calculateDuration() >= MIN_DURATION_FOR_DISCOUNT;
   }
 
   @Override
   public double calculatePrice() {
     double basePrice = super.calculatePrice();
-    
+
     if (isEligibleForDiscount()) {
       return Math.max(0, basePrice - DISCOUNT_AMOUNT);
     }
-    
+
     return basePrice;
+  }
+
+  @Override
+  public void printDetails(String indent) {
+    super.printDetails(indent);
+    if (isEligibleForDiscount()) {
+      System.out.println(indent + String.format("Special Discount Applied: -$%.2f\n", DISCOUNT_AMOUNT));
+    }
+  }
+
+  @Override
+  public int getModuleCount() {
+    return super.getModuleCount(); // Return the module count from the decorated cart
+  }
+
+  @Override
+  public double calculateDuration() {
+    return super.calculateDuration(); // Return the total duration from the decorated cart
   }
 }

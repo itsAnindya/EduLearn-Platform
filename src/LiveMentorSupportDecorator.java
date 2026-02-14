@@ -10,4 +10,15 @@ public class LiveMentorSupportDecorator extends AddOnDecorator {
     return super.calculatePrice() + PRICE;
   }
 
+  @Override
+  public void printDetails(String indent) {
+    super.printDetails(indent);
+    System.out.println(indent + String.format("Add-On: Live Mentor Support"));
+    System.out.println(indent + String.format("Price: $%.2f\n", PRICE));
+  }
+
+  @Override
+  public int getModuleCount() {
+    return super.getModuleCount(); // Return the module count from the decorated cart
+  }
 }

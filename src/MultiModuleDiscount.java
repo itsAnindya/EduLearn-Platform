@@ -8,10 +8,7 @@ public class MultiModuleDiscount extends CartDecorator {
   }
 
   private boolean isEligibleForDiscount() {
-    if(super.cart instanceof Cart c) {
-      return c.getModuleCount() >= MIN_MODULES_FOR_DISCOUNT;
-    }
-    return false;
+    return getModuleCount() >= MIN_MODULES_FOR_DISCOUNT;
   }
 
   @Override
@@ -21,7 +18,20 @@ public class MultiModuleDiscount extends CartDecorator {
     if (isEligibleForDiscount()) {
       return Math.max(0, basePrice - DISCOUNT_AMOUNT);
     }
-    
+
     return basePrice;
+  }
+
+  @Override
+  public void printDetails(String indent) {
+    super.printDetails(indent);
+    if (isEligibleForDiscount()) {
+      System.out.println(indent + String.format("Multi-Module Discount Applied: -$%.2f\n", DISCOUNT_AMOUNT));
+    }
+  }
+
+  @Override
+  public int getModuleCount() {
+    return super.getModuleCount(); // Return the module count from the decorated cart
   }
 }

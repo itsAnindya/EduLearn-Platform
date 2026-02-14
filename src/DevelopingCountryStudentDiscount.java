@@ -22,4 +22,12 @@ public class DevelopingCountryStudentDiscount extends CartDecorator {
     
     return basePrice;
   }
+
+  @Override
+  public void printDetails(String indent) {
+    super.printDetails(indent);
+    if (isEligibleForDiscount()) {
+      System.out.println(indent + String.format("Developing Country Student Discount Applied: -$%.2f\n", DISCOUNT_AMOUNT));
+    }
+  }
 }

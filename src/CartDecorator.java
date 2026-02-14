@@ -24,4 +24,14 @@ public abstract class CartDecorator implements Purchasable {
   public void setCart(Purchasable cart) {
     this.cart = cart;
   }
+
+  @Override
+  public void printDetails(String indent) {
+    cart.printDetails(indent);
+  }
+
+  @Override
+  public int getModuleCount() {
+    return cart.getModuleCount();
+  }
 }

@@ -3,11 +3,18 @@ public class Lesson implements Purchasable {
   private double pricePerHour;
   private double duration; // in hours
 
-  //Constructor
+  // Constructor
   public Lesson(String title, double pricePerHour, double duration) {
     this.title = title;
     this.pricePerHour = pricePerHour;
     this.duration = duration;
+  }
+
+  @Override
+  public void printDetails(String indent) {
+    System.out.println(indent + String.format("Lesson: %s", title));
+    System.out.println(indent + String.format("Price: $%.2f", calculatePrice()));
+    System.out.println(indent + String.format("Duration: %.2f hours\n", duration));
   }
 
   // Getters and Setters
@@ -39,5 +46,10 @@ public class Lesson implements Purchasable {
 
   public void setDuration(double duration) {
     this.duration = duration;
+  }
+
+  @Override
+  public int getModuleCount() {
+    return 0; // Lessons do not contain modules
   }
 }

@@ -9,4 +9,16 @@ public class PracticeQuestionSetDecorator extends AddOnDecorator {
   public double calculatePrice() {
     return super.calculatePrice() + PRICE;
   }
+
+  @Override
+  public void printDetails(String indent) {
+    super.printDetails(indent);
+    System.out.println(indent + String.format("Add-On: Practice Question Set"));
+    System.out.println(indent + String.format("Price: $%.2f", PRICE));
+  }
+
+  @Override
+  public int getModuleCount() {
+    return super.getModuleCount(); // Return the module count from the decorated cart
+  }
 }

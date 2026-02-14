@@ -29,16 +29,6 @@ public class Cart implements Purchasable {
     return totalPrice;
   }
 
-  public int getModuleCount() {
-    int moduleCount = 0;
-    for (Purchasable item : items) {
-      if (item instanceof Module) {
-        moduleCount++;
-      }
-    }
-    return moduleCount;
-  }
-
   @Override
   public double calculateDuration() {
     double totalDuration = 0;
@@ -55,5 +45,29 @@ public class Cart implements Purchasable {
 
   public List<Purchasable> getItems() {
     return items;
+  }
+
+  @Override
+  public void printDetails(String indent) {
+    System.out.println(indent + "Cart Details:");
+    
+    for (int i = 1; i <= items.size(); i++) {
+      Purchasable item = items.get(i-1);
+      System.out.println(indent + "Item " + i + ":");
+      item.printDetails(indent + "  ");
+      System.out.println(indent + "-------------------");
+    }
+
+    System.out.printf(indent + "Total Price: $%.2f\n", calculatePrice());
+    System.out.printf(indent + "Total Duration: %.2f hours\n", calculateDuration());
+  }
+
+  @Override
+  public int getModuleCount() {
+    int moduleCount = 0;
+    for (Purchasable item : items) {
+      moduleCount += item.getModuleCount();
+    }
+    return moduleCount;
   }
 }
