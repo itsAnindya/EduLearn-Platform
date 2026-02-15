@@ -8,5 +8,6 @@
   ],
   "java.classPath": [
     "out"
-  ]
+  ],
+  "vscode-pets.theme": "winter"
 }
