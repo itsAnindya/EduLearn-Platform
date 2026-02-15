@@ -1,8 +1,12 @@
 {
   "java.project.sourcePaths": [
-    "src"
+    "src",
+    "2205107/src"
   ],
   "cSpell.words": [
     "Wrappee"
+  ],
+  "java.classPath": [
+    "out"
   ]
 }
