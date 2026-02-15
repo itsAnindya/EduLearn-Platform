@@ -30,10 +30,10 @@ class InputHelper {
   boolean readYesNo(String prompt) {
     while (true) {
       String input = readLine(prompt).toLowerCase();
-      if (input.equals("yes") || input.equals("y")) {
+      if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
         return true;
       }
-      if (input.equals("no") || input.equals("n")) {
+      if (input.equalsIgnoreCase("no") || input.equalsIgnoreCase("n")) {
         return false;
       }
       System.out.println("Invalid choice. Please enter yes or no.");
