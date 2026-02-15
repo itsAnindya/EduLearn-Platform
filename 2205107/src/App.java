@@ -80,7 +80,7 @@ class EduLearnApp {
       System.out.println("Price: $" + String.format("%.2f", module.calculatePrice()));
       System.out.println("Duration: " + module.calculateDuration() + " hours");
       System.out.println("\nModule Details:");
-      module.printDetails("  ");
+      module.printDetails("> ");
       System.out.println("\n" + "-".repeat(REPEAT_COUNT));
       System.out.println("1. Add Module to Cart (with add-ons)");
       System.out.println("2. Browse Courses in this Module");
@@ -130,7 +130,7 @@ class EduLearnApp {
       System.out.println("Price: $" + String.format("%.2f", course.calculatePrice()));
       System.out.println("Duration: " + course.calculateDuration() + " hours");
       System.out.println("\nCourse Details:");
-      course.printDetails("  ");
+      course.printDetails("> ");
       System.out.println("\n" + "-".repeat(REPEAT_COUNT));
       System.out.println("1. Add Course to Cart");
       System.out.println("2. Browse Lessons in this Course");
@@ -179,7 +179,7 @@ class EduLearnApp {
       System.out.println("Price: $" + String.format("%.2f", lesson.calculatePrice()));
       System.out.println("Duration: " + lesson.calculateDuration() + " hours");
       System.out.println("\nLesson Details:");
-      lesson.printDetails("  ");
+      lesson.printDetails("> ");
       System.out.println("\n" + "-".repeat(REPEAT_COUNT));
       System.out.println("1. Add Lesson to Cart");
       System.out.println("2. Back to Lesson List");
@@ -247,7 +247,7 @@ class EduLearnApp {
       for (Purchasable item : cartService.getItems()) {
         count++;
         System.out.println("\nItem " + count + ":");
-        item.printDetails("  ");
+        item.printDetails("> ");
         System.out.println("  Price: $" + String.format("%.2f", item.calculatePrice()));
         total += item.calculatePrice();
       }
