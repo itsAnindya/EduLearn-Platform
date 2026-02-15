@@ -50,16 +50,15 @@ public class Cart implements Purchasable {
   @Override
   public void printDetails(String indent) {
     System.out.println(indent + "Cart Details:");
+    System.out.printf(indent + "Total Price: $%.2f\n", calculatePrice());
+    System.out.printf(indent + "Total Duration: %.2f hours\n", calculateDuration());
     
     for (int i = 1; i <= items.size(); i++) {
       Purchasable item = items.get(i-1);
       System.out.println(indent + "Item " + i + ":");
-      item.printDetails(indent + "  ");
+      item.printDetails("  " + indent);
       System.out.println(indent + "-------------------");
     }
-
-    System.out.printf(indent + "Total Price: $%.2f\n", calculatePrice());
-    System.out.printf(indent + "Total Duration: %.2f hours\n", calculateDuration());
   }
 
   @Override

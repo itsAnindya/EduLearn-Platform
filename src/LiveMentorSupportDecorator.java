@@ -14,7 +14,7 @@ public class LiveMentorSupportDecorator extends AddOnDecorator {
   public void printDetails(String indent) {
     super.printDetails(indent);
     System.out.println(indent + String.format("Add-On: Live Mentor Support"));
-    System.out.println(indent + String.format("Price: $%.2f\n", PRICE));
+    System.out.println(indent + String.format("Price: $%.2f", PRICE));
   }
 
   @Override

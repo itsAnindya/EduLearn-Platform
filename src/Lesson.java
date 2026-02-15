@@ -13,8 +13,8 @@ public class Lesson implements Purchasable {
   @Override
   public void printDetails(String indent) {
     System.out.println(indent + String.format("Lesson: %s", title));
-    System.out.println(indent + String.format("Price: $%.2f", calculatePrice()));
-    System.out.println(indent + String.format("Duration: %.2f hours\n", duration));
+    System.out.println(indent + String.format("Lesson Price: $%.2f", calculatePrice()));
+    System.out.println(indent + String.format("Duration: %.2f hours", duration));
   }
 
   // Getters and Setters

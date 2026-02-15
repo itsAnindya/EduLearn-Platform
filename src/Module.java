@@ -61,13 +61,13 @@ public class Module implements Purchasable {
   @Override
   public void printDetails(String indent) {
     System.out.println(indent + "Module: " + title);
-    System.out.println(indent + "Total Price: $" + String.format("%.2f", calculatePrice()));
+    System.out.println(indent + "Module Price: $" + String.format("%.2f", calculatePrice()));
     System.out.println(indent + "Total Duration: " + String.format("%.2f", calculateDuration()) + " hours");
     
     for (int i = 1; i <= courses.size(); i++) {
       System.out.println(indent + "Course " + i + ":");
-      courses.get(i-1).printDetails(indent + "  ");
-      System.out.println();
+      courses.get(i-1).printDetails("  " + indent);
+      System.out.println(indent + "-------------------");
     }
   }
 
