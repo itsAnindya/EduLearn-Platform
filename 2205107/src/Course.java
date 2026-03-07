@@ -1,5 +1,15 @@
 import java.util.ArrayList;
 
+/**
+ * COMPOSITE PATTERN – Composite (first level)
+ *
+ * <p>A {@code Course} is an intermediate composite node that owns an ordered
+ * collection of {@link Lesson} objects (the leaves). It implements the
+ * {@link Purchasable} interface by iterating over its children and summing their
+ * results, so {@link #calculatePrice()} and {@link #calculateDuration()} return
+ * aggregate values automatically. Client code that holds a {@code Purchasable}
+ * reference treats a {@code Course} identically to a single {@code Lesson}.
+ */
 public class Course implements Purchasable {
   private String title;
   private final ArrayList<Lesson> lessons;

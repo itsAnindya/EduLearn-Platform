@@ -1,5 +1,17 @@
 import java.util.List;
 
+/**
+ * COMPOSITE PATTERN – Composite (shopping-cart root)
+ *
+ * <p>A {@code Cart} is a flat composite that can hold <em>any</em>
+ * {@link Purchasable} item – a bare {@link Lesson}, a {@link Course}, a
+ * {@link Module}, or even a decorator-wrapped variant of any of these. It sums
+ * the results of {@link #calculatePrice()}, {@link #calculateDuration()}, and
+ * {@link #getModuleCount()} across all children, remaining completely unaware of
+ * the concrete type of each item. This is the key benefit of the Composite
+ * pattern: the checkout logic works uniformly regardless of what was added to the
+ * cart.
+ */
 public class Cart implements Purchasable {
   private List<Purchasable> items;
 

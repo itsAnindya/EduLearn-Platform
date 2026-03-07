@@ -1,5 +1,16 @@
 import java.util.ArrayList;
 
+/**
+ * COMPOSITE PATTERN – Composite (second level)
+ *
+ * <p>A {@code Module} is the top-level composite node in the content hierarchy. It
+ * owns an ordered collection of {@link Course} objects, each of which may itself
+ * contain multiple {@link Lesson} leaves. {@link #calculatePrice()} and
+ * {@link #calculateDuration()} delegate recursively to every contained
+ * {@code Course}, which in turn delegate to their {@code Lesson} children. The
+ * result is that querying price or duration on a {@code Module} transparently
+ * traverses the entire sub-tree without any special-case logic in the caller.
+ */
 public class Module implements Purchasable {
   private String title;
   private final ArrayList<Course> courses;
