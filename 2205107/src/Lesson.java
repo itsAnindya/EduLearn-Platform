@@ -1,3 +1,12 @@
+/**
+ * COMPOSITE PATTERN – Leaf
+ *
+ * <p>A {@code Lesson} is the smallest, indivisible unit of the content tree. It
+ * has no children and directly stores its own {@code duration} and
+ * {@code pricePerHour}. Both {@link #calculatePrice()} and
+ * {@link #calculateDuration()} simply return the values it owns rather than
+ * delegating to child components.
+ */
 public class Lesson implements Purchasable {
   private String title;
   private double pricePerHour;
